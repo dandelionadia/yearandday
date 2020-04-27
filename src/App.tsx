@@ -1,8 +1,30 @@
 import React from "react";
-import { Text } from "./atoms/Text";
-import { Button } from "./atoms/Button";
+import { createGlobalStyle } from "styled-components";
 import Layout from "atomic-layout";
 import { Grid } from "../src/atoms/Grid";
+import { ProductItem } from "./molecules/ProductItem";
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  a {
+    text-decoration: none;
+  }
+`;
 
 Layout.configure({
   defaultUnit: "rem",
@@ -10,12 +32,12 @@ Layout.configure({
 
 function App() {
   return (
-    <Grid>
-      <Text>text</Text>
-      <Text small>text small</Text>
-      <Text big>text small</Text>
-      <Button>btn</Button>
-    </Grid>
+    <>
+      <GlobalStyle />
+      <Grid>
+        <ProductItem />
+      </Grid>
+    </>
   );
 }
 
