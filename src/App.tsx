@@ -6,7 +6,7 @@ import { ProductItem } from "./molecules/ProductItem";
 
 const GlobalStyle = createGlobalStyle`
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   body {
