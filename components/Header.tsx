@@ -5,6 +5,7 @@ import { LogoIcon } from '../atoms/LogoIcon'
 import { LogoIconMobile } from '../atoms/LogoIconMobile'
 import { Bar } from '../components/Bar'
 import { Menu } from '../atoms/Menu'
+import { BurgerBtn } from './BurgerBtn'
 
 const data = [
   {
@@ -46,7 +47,7 @@ export const Header: React.FC = () => {
         <>
           <Areas.Menu>
             <Only to="lg">
-              <span>=</span>
+              <BurgerBtn />
             </Only>
             <Only from="lg">
               <Menu data={data} />
