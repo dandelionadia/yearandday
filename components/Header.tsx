@@ -1,6 +1,5 @@
 import React from 'react'
 import { Composition, Only } from 'atomic-layout'
-import styled from 'styled-components'
 import { LogoIcon } from '../atoms/LogoIcon'
 import { LogoIconMobile } from '../atoms/LogoIconMobile'
 import { Bar } from '../components/Bar'
