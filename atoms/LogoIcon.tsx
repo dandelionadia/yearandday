@@ -9,7 +9,7 @@ export const LogoIcon: React.FC<LogoIconProps> = ({ className }) => {
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      height="20"
+      height="18"
       width="150"
       viewBox="0 0 156 18"
       preserveAspectRatio="xMinYMin meet"

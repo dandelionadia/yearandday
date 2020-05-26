@@ -29,10 +29,6 @@ const areasLg = `
   / 1fr 1fr 1fr
 `
 
-const StyledLogo = styled(LogoIcon)``
-
-const StyledLogoMobile = styled(LogoIconMobile)``
-
 export const Header: React.FC = () => {
   return (
     <Composition
@@ -54,11 +50,11 @@ export const Header: React.FC = () => {
             </Only>
           </Areas.Menu>
           <Areas.Logo justify="center">
-            <Only from="md">
-              <StyledLogo />
+            <Only from="md" flex alig="center">
+              <LogoIcon />
             </Only>
-            <Only to="md">
-              <StyledLogoMobile />
+            <Only to="md" flex alig="center">
+              <LogoIconMobile />
             </Only>
           </Areas.Logo>
           <Areas.Bar flex justify="flex-end">
