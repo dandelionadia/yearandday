@@ -25,7 +25,7 @@ const areasMobile = `
 
 const areasLg = `
   menu logo bar
-  / 1fr 1fr 1fr
+  / auto 1fr 1fr
 `
 
 export const Header: React.FC = () => {
