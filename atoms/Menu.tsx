@@ -9,6 +9,17 @@ const StyledLink = styled.a`
   }
 `
 
+const StyledLi = styled.li`
+  .icon {
+    transition: transform 0.4s;
+  }
+  :hover {
+    .icon {
+      transform: rotate(-180deg);
+    }
+  }
+`
+
 interface MenuProps {
   data: Array<{ name: string }>
 }
@@ -22,9 +33,9 @@ export const Menu: React.FC<MenuProps> = ({ data }) => {
       gap={1}
     >
       {data.map((item) => (
-        <Box as="li" flex alignItems="flex-end">
+        <Box as={StyledLi} flex alignItems="flex-end">
           <StyledLink href="#">{item.name}</StyledLink>
-          <IoIosArrowDown size="20" fill="#d1ac9b" />
+          <IoIosArrowDown className="icon" size="20" fill="#d1ac9b" />
         </Box>
       ))}
     </Composition>
