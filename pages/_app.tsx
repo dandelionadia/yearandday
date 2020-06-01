@@ -5,6 +5,10 @@ import theme from '../theme'
 import { Header } from '../components/Header'
 import { CardLink } from '../atoms/CardLink'
 
+if (process.env.NODE_ENV === 'development') {
+  require('../mocks')
+}
+
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
