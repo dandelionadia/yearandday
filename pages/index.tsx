@@ -12,7 +12,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Header />
-        <ProductItem />
+        <ProductItem categoryId="abc-123" />
       </Grid>
     </div>
   )
