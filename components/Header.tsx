@@ -4,17 +4,21 @@ import { LogoIcon } from '../atoms/LogoIcon'
 import { LogoIconMobile } from '../atoms/LogoIconMobile'
 import { Bar } from '../components/Bar'
 import { Menu } from '../atoms/Menu'
+import { SubMenu } from '../atoms/SubMenu'
 import { BurgerBtn } from './BurgerBtn'
 
 const data = [
   {
     name: 'Shop',
+    subMenuName: 'foo 1',
   },
   {
     name: 'My Complete Set',
+    subMenuName: 'foo 2',
   },
   {
     name: 'About',
+    subMenuName: 'foo 3',
   },
 ]
 
@@ -27,6 +31,11 @@ const areasLg = `
   menu logo bar
   / auto 1fr 1fr
 `
+
+interface propsState {
+  data: any
+  loading: boolean
+}
 
 export const Header: React.FC = () => {
   return (

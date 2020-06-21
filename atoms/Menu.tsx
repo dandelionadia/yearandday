@@ -4,6 +4,7 @@ import { Box, Composition } from 'atomic-layout'
 import { IoIosArrowDown } from 'react-icons/io'
 
 const StyledLink = styled.a`
+  color: ${({ theme }) => theme.colors.blue};
   :not(:last-child) {
     margin-right: 5px;
   }
