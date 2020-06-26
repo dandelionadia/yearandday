@@ -12,12 +12,6 @@ const StyledBoxCartIcon = styled.div`
   border-radius: 50%;
 `
 
-const StyledLink = styled.a`
-  color: ${({ theme }) => theme.colors.blue};
-  :not(:last-child) {
-  }
-`
-
 const StyledCartIcon = styled(CartIcon)``
 
 export const Bar: React.FC = () => {
