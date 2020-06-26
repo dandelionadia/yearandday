@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Grid } from '../atoms/Grid'
 import { ProductItem } from '../components/ProductItem'
+import { Header } from '../components/Header'
 
 export default function Home() {
   return (
@@ -9,8 +10,9 @@ export default function Home() {
         <Head>
           <title>Create Next App</title>
           <link rel="icon" href="/favicon.ico" />
-          <ProductItem />
         </Head>
+        <Header />
+        <ProductItem categoryId="abc-123" />
       </Grid>
     </div>
   )

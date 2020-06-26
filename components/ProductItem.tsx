@@ -1,24 +1,52 @@
-import React from "react";
-import { Box, Composition } from "atomic-layout";
-import styled from "styled-components";
-import { Heading } from "../atoms/Heading";
-import { Button } from "../atoms/Button";
-import { Image } from "../atoms/Image";
-import { CardLink } from "../atoms/CardLink";
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 
 const Container = styled.div`
   max-width: 600px;
-`;
+`
 
-export const ProductItem: React.FC = () => {
+interface propsState {
+  data: Array<{
+    title: string
+    categoryId: string
+  }>
+  loading: boolean
+}
+
+interface Props {
+  categoryId: string
+}
+
+export const ProductItem: React.FC<Props> = ({ categoryId }) => {
+  const [state, setState] = useState<propsState>({
+    data: null,
+    loading: false,
+  })
+
+  useEffect(() => {
+    setState({ data: null, loading: true })
+
+    // /products?categoryId=abc-123
+    // /products?categoryId=def-456
+    fetch(`/products?categoryId=${categoryId}`)
+      .then((res) => res.json())
+      .then((res) => setState({ data: res, loading: false }))
+      .catch(() => setState({ data: null, loading: false }))
+  }, [])
+
+  if (state.loading) {
+    return <p>Loading...</p>
+  }
+
+  if (!state.data) {
+    return <p>No data</p>
+  }
+
   return (
-    <Box as={Container}>
-      <Heading as="h2">Mugs</Heading>
-      <Image src="https://s3.amazonaws.com/year-and-day/app/public/spree/products/712/product/Mug_Moon_Set.jpg?1509378345" />
-      <Composition templateCols="repeat(2, 1fr)">
-        <CardLink href="#">More Info</CardLink>
-        <Button>Add to Cart</Button>
-      </Composition>
-    </Box>
-  );
-};
+    <>
+      {state.data.map((product) => (
+        <p>{product.title}</p>
+      ))}
+    </>
+  )
+}
