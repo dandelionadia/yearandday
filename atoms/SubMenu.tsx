@@ -24,8 +24,8 @@ export const SubMenu: React.FC<MenuProps> = ({ data }) => {
       textAlign="center"
       gap={1}
     >
-      {data.map((item) => (
-        <Box as="li" flex alignItems="flex-end">
+      {data.map((item, key) => (
+        <Box as="li" key={key} flex alignItems="flex-end">
           <StyledLink href="#">{item.subMenuName}</StyledLink>
         </Box>
       ))}
