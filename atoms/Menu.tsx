@@ -33,8 +33,8 @@ export const Menu: React.FC<MenuProps> = ({ data }) => {
       textAlign="center"
       gap={1}
     >
-      {data.map((item) => (
-        <Box as={StyledLi} flex alignItems="flex-end">
+      {data.map((item, key) => (
+        <Box as={StyledLi} key={key} flex alignItems="flex-end">
           <StyledLink href="#">{item.name}</StyledLink>
           <IoIosArrowDown className="icon" size="20" fill="#d1ac9b" />
         </Box>
