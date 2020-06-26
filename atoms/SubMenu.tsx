@@ -12,8 +12,6 @@ const StyledLink = styled.a`
   }
 `
 
-const StyledLi = styled.li``
-
 interface MenuProps {
   data: Array<{ subMenuName: string }>
 }
@@ -27,7 +25,7 @@ export const SubMenu: React.FC<MenuProps> = ({ data }) => {
       gap={1}
     >
       {data.map((item) => (
-        <Box as={StyledLi} flex alignItems="flex-end">
+        <Box as="li" flex alignItems="flex-end">
           <StyledLink href="#">{item.subMenuName}</StyledLink>
         </Box>
       ))}
