@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Grid } from "../atoms/Grid";
-import { ProductItem } from "../components/ProductItem";
 
 export default function Home() {
   return (
