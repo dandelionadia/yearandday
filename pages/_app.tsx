@@ -1,12 +1,22 @@
-import { AppProps } from 'next/app'
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import Layout from 'atomic-layout'
-import theme from '../theme'
-import { Header } from '../components/Header'
+import { AppProps } from "next/app";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import Layout from "atomic-layout";
+import theme from "../theme";
+import { Header } from "../components/Header";
+import { ProductItem } from "../components/ProductItem";
 
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
+     
+    ${({ theme }) =>
+      Object.keys(theme.colors)
+        .map((colorName) => {
+          return `--color-${colorName
+            .replace(/([A-Z])/, "-$1")
+            .toLowerCase()}: ${theme.colors[colorName]}`;
+        })
+        .join(";")}
   }
 
   body {
@@ -31,11 +41,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
-`
+`;
 
 Layout.configure({
-  defaultUnit: 'rem',
-})
+  defaultUnit: "rem",
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -43,8 +53,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <Header />
       <Component {...pageProps} />
+      <ProductItem />
     </ThemeProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
