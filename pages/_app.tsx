@@ -43,7 +43,7 @@ Layout.configure({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
-      <Provider strore={store}>
+      <Provider store={store}>
         <GlobalStyle />
         <Header />
         <Component {...pageProps} />
