@@ -1,6 +1,8 @@
 import { AppProps } from "next/app";
+import { Provider } from "react-redux";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import Layout from "atomic-layout";
+
 import theme from "../theme";
 import { Header } from "../components/Header";
 import { store } from "../store/store";
