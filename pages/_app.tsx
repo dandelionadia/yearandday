@@ -1,8 +1,9 @@
-import { AppProps } from 'next/app'
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import Layout from 'atomic-layout'
-import theme from '../theme'
-import { Header } from '../components/Header'
+import { AppProps } from "next/app";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import Layout from "atomic-layout";
+import theme from "../theme";
+import { Header } from "../components/Header";
+import { store } from "../store/store";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -31,20 +32,22 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
-`
+`;
 
 Layout.configure({
-  defaultUnit: 'rem',
-})
+  defaultUnit: "rem",
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header />
-      <Component {...pageProps} />
+      <Provider strore={store}>
+        <GlobalStyle />
+        <Header />
+        <Component {...pageProps} />
+      </Provider>
     </ThemeProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
