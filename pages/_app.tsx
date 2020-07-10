@@ -8,6 +8,7 @@ import theme from "../theme";
 import { Header } from "../components/Header";
 import { store } from "../store/store";
 import { useState } from "react";
+import { Cart } from "../components/Cart";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -71,6 +72,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <GlobalStyle />
         <Header />
+        <Cart />
         <Component {...pageProps} />
       </Provider>
     </ThemeProvider>
