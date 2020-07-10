@@ -1,12 +1,21 @@
-import { AppProps } from 'next/app'
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import Layout from 'atomic-layout'
-import theme from '../theme'
-import { useEffect, useState } from 'react'
+import { AppProps } from "next/app";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import Layout from "atomic-layout";
+import theme from "../theme";
+import { useEffect, useState } from "react";
 
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
+     
+    ${({ theme }) =>
+      Object.keys(theme.colors)
+        .map((colorName) => {
+          return `--color-${colorName
+            .replace(/([A-Z])/, "-$1")
+            .toLowerCase()}: ${theme.colors[colorName]}`;
+        })
+        .join(";")}
   }
 
   body {
@@ -30,26 +39,26 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
-`
+`;
 
 Layout.configure({
-  defaultUnit: 'rem',
-})
+  defaultUnit: "rem",
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isReady, setReady] = useState(false)
+  const [isReady, setReady] = useState(false);
 
   useEffect(() => {
     const isMockReady =
-      process.env.NODE_ENV === 'development'
-        ? require('../mocks/mocks').worker.start()
-        : Promise.resolve()
+      process.env.NODE_ENV === "development"
+        ? require("../mocks/mocks").worker.start()
+        : Promise.resolve();
 
-    isMockReady.then(() => setReady(true))
-  }, [])
+    isMockReady.then(() => setReady(true));
+  }, []);
 
   if (!isReady) {
-    return null
+    return null;
   }
 
   return (
@@ -58,7 +67,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <Component {...pageProps} />
     </ThemeProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

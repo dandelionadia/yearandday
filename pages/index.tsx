@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import { Grid } from '../atoms/Grid'
-import { ProductItem } from '../components/ProductItem'
-import { Header } from '../components/Header'
+import Head from "next/head";
+import { Grid } from "../atoms/Grid";
+import { ProductItem } from "../components/ProductItem";
+import { Header } from "../components/Header";
 
 export default function Home() {
   return (
@@ -15,5 +15,5 @@ export default function Home() {
         <ProductItem categoryId="abc-123" />
       </Grid>
     </div>
-  )
+  );
 }
