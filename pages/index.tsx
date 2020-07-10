@@ -10,9 +10,9 @@ export default function Home() {
         <Head>
           <title>Create Next App</title>
           <link rel="icon" href="/favicon.ico" />
-          <ProductItem />
-          <Cart />
         </Head>
+        <Cart />
+        <ProductItem categoryId="abc-123" />
       </Grid>
     </div>
   );

@@ -10,10 +10,18 @@ import { store } from "../store/store";
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
+     
+    ${({ theme }) =>
+      Object.keys(theme.colors)
+        .map((colorName) => {
+          return `--color-${colorName
+            .replace(/([A-Z])/, "-$1")
+            .toLowerCase()}: ${theme.colors[colorName]}`;
+        })
+        .join(";")}
   }
 
   body {
-		background-color: ${({ theme }) => theme.colors.yellow};
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -41,6 +49,21 @@ Layout.configure({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [isReady, setReady] = useState(false);
+
+  useEffect(() => {
+    const isMockReady =
+      process.env.NODE_ENV === "development"
+        ? require("../mocks/mocks").worker.start()
+        : Promise.resolve();
+
+    isMockReady.then(() => setReady(true));
+  }, []);
+
+  if (!isReady) {
+    return null;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
