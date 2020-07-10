@@ -1,6 +1,7 @@
 import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
+// we need it for styled-components work on the server
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
