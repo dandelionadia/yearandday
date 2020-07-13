@@ -14,11 +14,16 @@ const Delete = styled.span`
   color: var(--color-pink);
 `;
 
+const Container = styled.div`
+  padding: 22px;
+`;
+
 import { Heading } from "../../atoms/Heading";
 
 export const Top: React.FC = () => {
   return (
     <Box
+      as={Container}
       flex
       flexDirection="row"
       justifyContent="space-between"

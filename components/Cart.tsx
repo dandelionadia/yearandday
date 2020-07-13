@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { Composition } from "atomic-layout";
 
 import { Top } from "./cartAtoms/Top";
+import { Bottom } from "./cartAtoms/Bottom";
 
 const Container = styled.div`
   width: 480px;
   height: calc(100vh - 72px);
   right: 0;
   margin: 0;
-  padding: 22px;
   border-top: 1px solid var(--color-orange-light);
   box-sizing: border-box;
   position: absolute;
@@ -30,7 +30,9 @@ export const Cart: React.FC = () => {
             <Top />
           </Areas.TopSection>
           <Areas.Content>content</Areas.Content>
-          <Areas.BottomSection align="flex-end">bottom</Areas.BottomSection>
+          <Areas.BottomSection align="flex-end">
+            <Bottom />
+          </Areas.BottomSection>
         </>
       )}
     </Composition>
