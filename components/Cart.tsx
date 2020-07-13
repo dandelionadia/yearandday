@@ -1,15 +1,16 @@
 import React from "react";
-import { Box } from "atomic-layout";
 import styled from "styled-components";
 import { Composition } from "atomic-layout";
 
+import { Top } from "./cartAtoms/Top";
+
 const Container = styled.div`
-  background-color: pink;
   width: 480px;
   height: calc(100vh - 72px);
   right: 0;
   margin: 0;
   padding: 22px;
+  border-top: 1px solid var(--color-orange-light);
   box-sizing: border-box;
   position: absolute;
 `;
@@ -25,7 +26,9 @@ export const Cart: React.FC = () => {
     <Composition as={Container} areas={areasMobile} gap={10}>
       {(Areas) => (
         <>
-          <Areas.TopSection>top</Areas.TopSection>
+          <Areas.TopSection>
+            <Top />
+          </Areas.TopSection>
           <Areas.Content>content</Areas.Content>
           <Areas.BottomSection align="flex-end">bottom</Areas.BottomSection>
         </>
