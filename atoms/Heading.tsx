@@ -21,4 +21,11 @@ export const Heading = styled.h1<HeadingProps>`
     css`
       font-size: 24px;
     `}
+
+    ${(props) =>
+      props.as === `h4` &&
+      css`
+        margin: 0;
+        font-size: 21px;
+      `}
 `;

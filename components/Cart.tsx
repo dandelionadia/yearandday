@@ -4,6 +4,8 @@ import { Composition } from "atomic-layout";
 
 import { Top } from "./cartAtoms/Top";
 import { Bottom } from "./cartAtoms/Bottom";
+import { Content } from "./cartAtoms/Content";
+import { Bar } from "./cartAtoms/Bar";
 
 const Container = styled.div`
   width: 480px;
@@ -28,8 +30,11 @@ export const Cart: React.FC = () => {
         <>
           <Areas.TopSection>
             <Top />
+            <Bar />
           </Areas.TopSection>
-          <Areas.Content>content</Areas.Content>
+          <Areas.Content>
+            <Content />
+          </Areas.Content>
           <Areas.BottomSection align="flex-end">
             <Bottom />
           </Areas.BottomSection>
