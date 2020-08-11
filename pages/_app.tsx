@@ -1,8 +1,14 @@
 import { AppProps } from "next/app";
+import { Provider } from "react-redux";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import Layout from "atomic-layout";
+import { useEffect } from "react";
+
 import theme from "../theme";
-import { useEffect, useState } from "react";
+import { Header } from "../components/Header";
+import { store } from "../store/store";
+import { useState } from "react";
+import { Cart } from "../components/Cart";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -63,9 +69,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <GlobalStyle />
+        <Header />
+        <Cart />
+        <Component {...pageProps} />
+      </Provider>
     </ThemeProvider>
   );
 }
